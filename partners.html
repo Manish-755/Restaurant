@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners - The Grand Eatery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { font-family: 'Garamond', serif; }
+        .navbar { background-color: rgba(0, 0, 0, 0.8) !important; backdrop-filter: blur(10px); }
+        .navbar-brand, .nav-link { color: #fff !important; }
+        .page-header { padding: 100px 0; color: #fff; text-align: center; background-size: cover; background-position: center center; }
+        .page-header h1 { font-size: 4rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        .section { padding: 80px 0; }
+        .footer { background-color: #343a40; color: #fff; padding: 40px 0; }
+        .footer a { color: #fff; text-decoration: none; }
+        .supplier-card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .supplier-card:hover {
+            transform: translateY(-5px);
+        }
+        .supplier-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .supplier-card .card-title {
+            font-weight: bold;
+        }
+        .supplier-card .card-subtitle {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">The Grand Eatery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservations.html">Reservations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          More
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="events.html">Events</a></li>
+                          <li><a class="dropdown-item" href="testimonials.html">Testimonials</a></li>
+                          <li><a class="dropdown-item" href="team.html">Our Team</a></li>
+                          <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                          <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="page-header" style="background-image: url('https://images.pexels.com/photos/2255855/pexels-photo-2255855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+        <h1>Our Valued Partners</h1>
+    </header>
+    <main class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">From Farm to Table</h2>
+                    <p class="lead">Our commitment to culinary excellence begins with our ingredients. We believe that the best dishes are made from the freshest, highest-quality produce, sourced from local farmers and artisans who share our passion. By supporting local communities, we not only ensure the quality of our food but also contribute to a sustainable future.</p>
+                </div>
+            </div>
+            <div class="row mt-5 g-4">
+                <div class="col-md-4">
+                    <div class="card supplier-card h-100">
+                        <img src="https://images.pexels.com/photos/1459339/pexels-photo-1459339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Fresh organic vegetables">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Green Valley Organics</h4>
+                            <h6 class="card-subtitle mb-2">Fresh Vegetables</h6>
+                            <p class="card-text">Located just outside Bengaluru, Green Valley provides us with daily harvests of crisp, organic vegetables, ensuring every salad and side dish is bursting with natural flavor.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card supplier-card h-100">
+                        <img src="https://images.pexels.com/photos/4183627/pexels-photo-4183627.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Artisanal dairy products">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Malnad Dairy Cooperative</h4>
+                            <h6 class="card-subtitle mb-2">Artisanal Dairy</h6>
+                            <p class="card-text">Our creamy paneer and rich yogurts come from the dedicated farmers of the Malnad region, known for their high-quality milk and traditional dairy practices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card supplier-card h-100">
+                        <img src="https://images.pexels.com/photos/1392585/pexels-photo-1392585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="Aromatic Indian spices">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Coastal Spice Merchants</h4>
+                            <h6 class="card-subtitle mb-2">Aromatic Spices</h6>
+                            <p class="card-text">From the coastal belts of Karnataka, we source our authentic, hand-ground spices that form the heart and soul of our traditional Indian recipes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><h5>The Grand Eatery</h5><p>A place where taste meets tradition.</p></div>
+                <div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="menu.html">Menu</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="col-md-4"><h5>Connect</h5><a href="facebook.html" class="fs-4 me-3"><i class="bi bi-facebook"></i></a></div>
+            </div>
+            <div class="text-center mt-3"><p>&copy; 2024 The Grand Eatery.</p></div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

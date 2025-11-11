@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - The Grand Eatery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        #login-screen {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #dashboard {
+            display: none; /* Hidden by default */
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            background-color: #343a40;
+            padding-top: 20px;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #adb5bd;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: #fff;
+            background-color: #495057;
+        }
+        .main-content {
+            margin-left: 280px;
+            padding: 20px;
+        }
+        .content-section {
+           padding-top: 20px;
+           margin-bottom: 40px;
+        }
+        .gallery-preview-img {
+            height: 150px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .team-preview-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="col-md-4 col-lg-3">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4">Admin Login</h3>
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" value="admin">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" value="password">
+                        </div>
+                        <div id="login-error" class="text-danger mb-3" style="display: none;">Invalid credentials</div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard">
+        <nav class="sidebar text-white">
+            <h4 class="text-center my-3">The Grand Eatery</h4>
+            <a href="../client side/index.html" target="_blank"><i class="bi bi-box-arrow-up-right me-2"></i> View Live Site</a>
+            <hr class="text-secondary">
+            <a href="#reservations" class="nav-link"><i class="bi bi-calendar-check me-2"></i> Reservations</a>
+            <a href="#menu" class="nav-link"><i class="bi bi-journal-text me-2"></i> Menu</a>
+            <a href="#gallery" class="nav-link"><i class="bi bi-images me-2"></i> Gallery</a>
+            <a href="#team" class="nav-link"><i class="bi bi-people me-2"></i> Team</a>
+            <a href="#testimonials" class="nav-link"><i class="bi bi-chat-quote me-2"></i> Testimonials</a>
+            <a href="#blog" class="nav-link"><i class="bi bi-pencil-square me-2"></i> Blog Posts</a>
+            <a href="#partners" class="nav-link"><i class="bi bi-truck me-2"></i> Our Partners</a>
+        </nav>
+
+        <main class="main-content">
+            <div id="reservations" class="content-section">
+                <h2>Manage Reservations</h2>
+                <table class="table table-striped">
+                    <thead><tr><th>Name</th><th>Phone</th><th>Date</th><th>Time</th><th>Guests</th><th>Action</th></tr></thead>
+                    <tbody><tr><td>Priya Sharma</td><td>+91 98765 43210</td><td>2024-10-26</td><td>19:30</td><td>4</td><td><button class="btn btn-sm btn-danger remove-item">Cancel</button></td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="menu" class="content-section">
+                <h2>Manage Menu</h2>
+                <div class="card card-body mb-4">
+                    <h4>Add New Item</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Item Name"></div>
+                            <div class="col-md-2 mb-3"><input type="text" class="form-control" placeholder="Price (₹)"></div>
+                            <div class="col-md-3 mb-3">
+                                <select class="form-select"><option selected>Category...</option><option>Appetizers</option><option>Main Courses</option><option>Desserts</option></select>
+                            </div>
+                            <div class="col-md-3 mb-3"><button type="submit" class="btn btn-primary w-100">Add Item</button></div>
+                        </div>
+                    </form>
+                </div>
+                <h4>Existing Menu Items</h4>
+                <table class="table table-bordered">
+                    <thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>Paneer Tikka Shashlik</td><td>Appetizers</td><td>₹450</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Samosa Chaat</td><td>Appetizers</td><td>₹350</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Murgh Makhani (Butter Chicken)</td><td>Main Courses</td><td>₹850</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Dal Makhani</td><td>Main Courses</td><td>₹650</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Gulab Jamun</td><td>Desserts</td><td>₹250</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Kesar Pista Kulfi</td><td>Desserts</td><td>₹300</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="gallery" class="content-section">
+                <h2>Manage Gallery</h2>
+                <div class="card card-body mb-4">
+                     <h4>Add New Image</h4>
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Image">
+                            <button class="btn btn-primary" type="button">Add Image</button>
+                        </div>
+                    </form>
+                </div>
+                <h4>Existing Gallery Images</h4>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="gallery-preview-img" alt="Gallery Image">
+                            <div class="card-body"><button class="btn btn-sm btn-outline-danger w-100 remove-item">Remove</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="team" class="content-section">
+                <h2>Manage Team</h2>
+                <div class="card card-body mb-4">
+                    <h4>Add New Team Member</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Name"></div>
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Role"></div>
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Image"></div>
+                            <div class="col-12"><button type="submit" class="btn btn-primary">Add Member</button></div>
+                        </div>
+                    </form>
+                </div>
+                <h4>Existing Team Members</h4>
+                <table class="table table-bordered">
+                     <thead><tr><th>Photo</th><th>Name</th><th>Role</th><th>Action</th></tr></thead>
+                     <tbody>
+                        <tr><td><img src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=512&h=512&dpr=1" class="rounded-circle team-preview-img"></td><td>Vikram Singh</td><td>Executive Chef</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=512&h=512&dpr=1" class="rounded-circle team-preview-img"></td><td>Arjun Kumar</td><td>General Manager</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td><img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=512&h=512&dpr=1" class="rounded-circle team-preview-img"></td><td>Anjali Rao</td><td>Sommelier</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                     </tbody>
+                </table>
+            </div>
+
+            <div id="testimonials" class="content-section">
+                <h2>Manage Testimonials</h2>
+                 <div class="card card-body mb-4">
+                    <h4>Add New Testimonial</h4>
+                    <form>
+                        <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Testimonial quote"></textarea></div>
+                        <div class="mb-3"><input type="text" class="form-control" placeholder="Author Name"></div>
+                        <button type="submit" class="btn btn-primary">Add Testimonial</button>
+                    </form>
+                </div>
+                <h4>Existing Testimonials</h4>
+                <div class="list-group">
+                    <div class="list-group-item d-flex justify-content-between align-items-center"><div><p class="mb-1">"An absolute delight! The food was exquisite, and the service was impeccable. A truly memorable evening."</p><small>- Priya S.</small></div><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center"><div><p class="mb-1">"The best Butter Chicken I've ever had. The flavors were rich and authentic. I'll definitely be back!"</p><small>- Rohan M.</small></div><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center"><div><p class="mb-1">"A beautiful restaurant with a wonderful atmosphere. Perfect for a special occasion. Highly recommended."</p><small>- Aisha K.</small></div><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></div>
+                </div>
+            </div>
+
+            <div id="blog" class="content-section">
+                <h2>Manage Blog Posts</h2>
+                <div class="card card-body mb-4">
+                    <h4>Add New Post</h4>
+                    <form>
+                        <div class="mb-3"><input type="text" class="form-control" placeholder="Post Title"></div>
+                        <div class="mb-3"><textarea class="form-control" rows="5" placeholder="Post Content"></textarea></div>
+                        <div class="mb-3"><input type="text" class="form-control" placeholder="Image"></div>
+                        <button type="submit" class="btn btn-primary">Add Post</button>
+                    </form>
+                </div>
+                <h4>Existing Blog Posts</h4>
+                <table class="table table-bordered">
+                     <thead><tr><th>Title</th><th>Action</th></tr></thead>
+                     <tbody>
+                        <tr><td>The Art of Spice Pairing</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>A Journey Through India's Culinary Regions</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                     </tbody>
+                </table>
+            </div>
+
+            <div id="partners" class="content-section">
+                <h2>Manage Our Partners</h2>
+                <div class="card card-body mb-4">
+                    <h4>Add New Partner</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Partner Name"></div>
+                            <div class="col-md-4 mb-3"><input type="text" class="form-control" placeholder="Type of Produce"></div>
+                            <div class="col-md-4 mb-3"><button type="submit" class="btn btn-primary w-100">Add Partner</button></div>
+                        </div>
+                    </form>
+                </div>
+                <h4>Existing Partners</h4>
+                <table class="table table-bordered">
+                    <thead><tr><th>Name</th><th>Produce</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>Green Valley Organics</td><td>Fresh Vegetables</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Malnad Dairy Cooperative</td><td>Artisanal Dairy</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                        <tr><td>Coastal Spice Merchants</td><td>Aromatic Spices</td><td><button class="btn btn-sm btn-outline-danger remove-item">Remove</button></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // MINIMAL JAVASCRIPT FOR LOGIN ONLY
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            const errorDiv = document.getElementById('login-error');
+            
+            if (user === 'admin' && pass === 'password') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                errorDiv.style.display = 'none';
+            } else {
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
